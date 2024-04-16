@@ -18,11 +18,11 @@ sass:
   style: compressed # expanded
 
 # SEO settings
-title: end2end
-description: "A free Jekyll theme for download"
-keywords: "Jekyll, theme, free, download, SEO, blog, web"
-url: http://nandomoreira.me
-baseurl: "/end2end"
+title: Hemershon
+description: "Blog do Hemershon Silva, engenheiro de software Sênior a 7 anos desenvolvendo soluções web."
+keywords: "ruby on rails, Postgresql, blog, web"
+url: ""
+baseurl: "/"
 
 google_analytics: UA-52446115-1
 repo: http://github.com/nandomoreirame/end2end
