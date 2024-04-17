@@ -22,32 +22,32 @@ title: Hemershon
 description: "Blog do Hemershon Silva, engenheiro de software Sênior a 7 anos desenvolvendo soluções web."
 keywords: "ruby on rails, Postgresql, blog, web"
 url: ""
-baseurl: "/"
+baseurl: ""
 
 google_analytics: UA-111493883-1
-repo: http://github.com/nandomoreirame/end2end
-disqus_shortname: "nandothemes"
-disqus_site_shortname: "nandothemes"
+repo: https://github.com/hemershon/hemershon.github.io
+disqus_shortname: "Hemershon"
+disqus_site_shortname: "Hemershon"
 
 # Author settings
 author:
-  name: Fernando Moreira
-  job: Frontend Engineer
-  bio: "Enthusiast performance, responsive design and usability, always looking for the best project and good coffee."
-  thumb: /images/author.jpg
-  email: nandomoreira.me@gmail.com
-  url: https://nandomoreira.me/
-  github: https://github.com/nandomoreirame
-  twitter: https://twitter.com/umdevux
-  facebook: https://facebook.com/umdevux
-  linkedin: https://linkedin.com/in/nandomoreirame
+  name: Hemershon Silva
+  job: Software Engineer
+  bio: "Sou engenheiro de software que a 7 anos desenvolvo sistema para web"
+  thumb: /images/author.png
+  email: hemershon@gmail.com
+  url: ""
+  github: https://github.com/hemershon
+  twitter: https://twitter.com/ohemershon
+  facebook: https://facebook.com/
+  linkedin: https://linkedin.com/in/hemershon-silva
 
 # navbar pages
 navbar:
   - slug: about
-    title: About
-  - slug: icons
-    title: Icons
+    title: Sobre
+  # - slug: icons
+  #   title: Icons
   - slug: blog
     title: Blog
 
