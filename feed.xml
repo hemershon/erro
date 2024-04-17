@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hemershon</title>
+    <description>Blog do Hemershon Silva, engenheiro de software Sênior a 7 anos desenvolvendo soluções web.</description>
+    <link>/</link>
+    <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Wed, 17 Apr 2024 16:12:56 -0300</pubDate>
+    <lastBuildDate>Wed, 17 Apr 2024 16:12:56 -0300</lastBuildDate>
+    <generator>Jekyll v3.6.3</generator>
+    
+      <item>
+        <title>Docker Para Rails</title>
+        <description>&lt;hr /&gt;
+&lt;p&gt;layout: post
+title: “Docker para Rails”
+permalink: docker-para-rails
+date: 2020-04-17 13:44:04
+comments: true
+description: “Docker para Rails”
+keywords: “”
+categories:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Rails&lt;/li&gt;
+  &lt;li&gt;Docker&lt;/li&gt;
+  &lt;li&gt;Ruby&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;tags:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;iniciante&lt;/li&gt;
+  &lt;li&gt;docker&lt;/li&gt;
+  &lt;li&gt;rails&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;docker-com-ruby-on-rails&quot;&gt;Docker com Ruby on Rails&lt;/h1&gt;
+&lt;p&gt;&lt;em&gt;Escrito por Hemershon Silva&lt;/em&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;como-dockerizar-sua-aplicação&quot;&gt;Como dockerizar sua aplicação&lt;/h2&gt;
+
+&lt;p&gt;Este tutorial é para ajudar quem tem dificuldade em montar seu ambiente Rails no Docker, aqui vou abordar técnicas de como usar o Docker e Docker Compose que ambos trabalham em plena harmonia.&lt;/p&gt;
+
+&lt;h3 id=&quot;resumo-sobre-o-docker&quot;&gt;Resumo sobre o Docker&lt;/h3&gt;
+
+&lt;p&gt;Docker é um software contêiner da empresa Docker, Inc, que fornece uma camada de abstração e automação para virtualização de sistema operacional no Windows, Macos e Linux.&lt;/p&gt;
+
+&lt;h3 id=&quot;requisitos&quot;&gt;Requisitos:&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Docker instalado na sua maquina &lt;a href=&quot;https://www.edivaldobrito.com.br/docker-no-ubuntu/&quot;&gt;Instalação do docker&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Docker-compose instalado &lt;a href=&quot;https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-compose-on-ubuntu-20-04-pt&quot;&gt;Instalação do docker-compose&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;definindo-um-projeto&quot;&gt;Definindo um projeto&lt;/h2&gt;
+
+&lt;p&gt;Comece configurando os arquivos necessários para construir o aplicativo que será executado dentro de um contêiner do Docker suas dependências.&lt;/p&gt;
+
+&lt;p&gt;Os arquivos são:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Dockerfile&lt;/li&gt;
+  &lt;li&gt;docker-compose.yml&lt;/li&gt;
+  &lt;li&gt;Gemfile&lt;/li&gt;
+  &lt;li&gt;Gemfile.lock&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Primeiro passo vamos criar o arquivo Dockerfile&lt;/p&gt;
+
+&lt;p&gt;```Dockerfile
+FROM ruby:3.0.0
+RUN apt-get update -qq &amp;amp;&amp;amp; apt-get install -y nodejs postgresql-client
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - &amp;amp;&amp;amp; \
+  echo “deb https://dl.yarnpkg.com/debian/ stable main” | tee /etc/apt/sources.list.d/yarn.list &amp;amp;&amp;amp; \
+  apt-get update -qq &amp;amp;&amp;amp; apt-get install -y nodejs postgresql-client vim &amp;amp;&amp;amp; \
+  apt-get install -y yarn &amp;amp;&amp;amp; \
+  apt-get install -y imagemagick &amp;amp;&amp;amp; \
+  apt-get install -y libvips-tools &amp;amp;&amp;amp; \
+  apt-get install -y locales&lt;/p&gt;
+
+&lt;h1 id=&quot;instala-nossas-dependencias&quot;&gt;Instala nossas dependencias&lt;/h1&gt;
+&lt;p&gt;RUN apt-get update &amp;amp;&amp;amp; apt-get install -qq -y –no-install-recommends \
+nodejs yarn build-essential libpq-dev imagemagick git-all nano&lt;/p&gt;
+
+&lt;p&gt;WORKDIR /seuapp
+COPY Gemfile /seuapp/Gemfile
+COPY Gemfile.lock /seuapp/Gemfile.lock
+RUN bundle update mimemagic
+RUN bundle install
+COPY . /seuapp&lt;/p&gt;
+</description>
+        <pubDate>Fri, 17 Apr 2020 00:00:00 -0300</pubDate>
+        <link>/blog/2020/docker-para-rails/</link>
+        <guid isPermaLink="true">/blog/2020/docker-para-rails/</guid>
+        
+        
+      </item>
+    
+  </channel>
+</rss>

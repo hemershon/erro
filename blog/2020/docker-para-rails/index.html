@@ -1,0 +1,77 @@
+<hr />
+<p>layout: post
+title: “Docker para Rails”
+permalink: docker-para-rails
+date: 2020-04-17 13:44:04
+comments: true
+description: “Docker para Rails”
+keywords: “”
+categories:</p>
+<ul>
+  <li>Rails</li>
+  <li>Docker</li>
+  <li>Ruby</li>
+</ul>
+
+<p>tags:</p>
+
+<ul>
+  <li>iniciante</li>
+  <li>docker</li>
+  <li>rails</li>
+</ul>
+
+<h1 id="docker-com-ruby-on-rails">Docker com Ruby on Rails</h1>
+<p><em>Escrito por Hemershon Silva</em></p>
+
+<h2 id="como-dockerizar-sua-aplicação">Como dockerizar sua aplicação</h2>
+
+<p>Este tutorial é para ajudar quem tem dificuldade em montar seu ambiente Rails no Docker, aqui vou abordar técnicas de como usar o Docker e Docker Compose que ambos trabalham em plena harmonia.</p>
+
+<h3 id="resumo-sobre-o-docker">Resumo sobre o Docker</h3>
+
+<p>Docker é um software contêiner da empresa Docker, Inc, que fornece uma camada de abstração e automação para virtualização de sistema operacional no Windows, Macos e Linux.</p>
+
+<h3 id="requisitos">Requisitos:</h3>
+
+<ul>
+  <li>Docker instalado na sua maquina <a href="https://www.edivaldobrito.com.br/docker-no-ubuntu/">Instalação do docker</a></li>
+  <li>Docker-compose instalado <a href="https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-compose-on-ubuntu-20-04-pt">Instalação do docker-compose</a></li>
+</ul>
+
+<h2 id="definindo-um-projeto">Definindo um projeto</h2>
+
+<p>Comece configurando os arquivos necessários para construir o aplicativo que será executado dentro de um contêiner do Docker suas dependências.</p>
+
+<p>Os arquivos são:</p>
+
+<ul>
+  <li>Dockerfile</li>
+  <li>docker-compose.yml</li>
+  <li>Gemfile</li>
+  <li>Gemfile.lock</li>
+</ul>
+
+<p>Primeiro passo vamos criar o arquivo Dockerfile</p>
+
+<p>```Dockerfile
+FROM ruby:3.0.0
+RUN apt-get update -qq &amp;&amp; apt-get install -y nodejs postgresql-client
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - &amp;&amp; \
+  echo “deb https://dl.yarnpkg.com/debian/ stable main” | tee /etc/apt/sources.list.d/yarn.list &amp;&amp; \
+  apt-get update -qq &amp;&amp; apt-get install -y nodejs postgresql-client vim &amp;&amp; \
+  apt-get install -y yarn &amp;&amp; \
+  apt-get install -y imagemagick &amp;&amp; \
+  apt-get install -y libvips-tools &amp;&amp; \
+  apt-get install -y locales</p>
+
+<h1 id="instala-nossas-dependencias">Instala nossas dependencias</h1>
+<p>RUN apt-get update &amp;&amp; apt-get install -qq -y –no-install-recommends \
+nodejs yarn build-essential libpq-dev imagemagick git-all nano</p>
+
+<p>WORKDIR /seuapp
+COPY Gemfile /seuapp/Gemfile
+COPY Gemfile.lock /seuapp/Gemfile.lock
+RUN bundle update mimemagic
+RUN bundle install
+COPY . /seuapp</p>
